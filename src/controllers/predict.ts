@@ -44,7 +44,7 @@ export async function postPredict(
         ? "Model is predicted successfully."
         : "Model is predicted successfully but under threshold. Please use the correct picture.";
 
-    // await storeData(id, data);
+    await storeData(id, data);
 
     return res.status(201).json({
       status: "success",
