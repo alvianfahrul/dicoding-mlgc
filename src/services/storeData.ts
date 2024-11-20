@@ -11,6 +11,6 @@ export async function storeData(
   data: PredictionData
 ): Promise<void> {
   const db = new Firestore();
-  const predictCollection = db.collection("prediction");
+  const predictCollection = db.collection("predictions");
   await predictCollection.doc(id).set(data);
 }
