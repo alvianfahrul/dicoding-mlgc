@@ -39,10 +39,7 @@ export async function postPredict(
       createdAt,
     };
 
-    const message =
-      confidenceScore > 99
-        ? "Model is predicted successfully."
-        : "Model is predicted successfully but under threshold. Please use the correct picture.";
+    const message = "Model is predicted successfully.";
 
     await storeData(id, data);
 
