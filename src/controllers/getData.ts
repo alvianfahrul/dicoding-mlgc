@@ -5,7 +5,7 @@ const db = new Firestore();
 
 export const getData = async (req: Request, res: Response): Promise<void> => {
   try {
-    const collectionName = "prediction";
+    const collectionName = "predictions";
     const snapshot = await db.collection(collectionName).get();
 
     if (snapshot.empty) {
