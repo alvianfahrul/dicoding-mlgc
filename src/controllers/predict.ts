@@ -39,7 +39,7 @@ export async function postPredict(
       createdAt,
     };
 
-    const message = "Model is predicted successfully.";
+    const message = "Model is predicted successfully";
 
     await storeData(id, data);
 
