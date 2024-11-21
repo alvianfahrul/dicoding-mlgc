@@ -1,6 +1,6 @@
-FROM node:18-slim AS build
+FROM node:18-slim AS builder
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
 COPY package*.json ./
 
@@ -10,6 +10,13 @@ COPY . .
 
 RUN npm run build
 
+FROM node:18-slim
+
+WORKDIR /app
+
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
+
 EXPOSE 3000
 
-CMD ["npm", "start"]
+CMD ["node", "dist/index.js"]
